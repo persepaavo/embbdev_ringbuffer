@@ -86,10 +86,11 @@ int print_buffer(struct buffer_type b, enum error_type *err){
 int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_type *err){
 	int i = 0;
 	int l = 0;
+	int k;
 	while(*(s+l) != '\0'){
 		l++;
 	}
-	int k = get_buffer_status(*b,err);
+	k = get_buffer_status(*b,err);
 	
 	if(l > (MAX_BUFFER-k)){
 		return -1;
@@ -109,8 +110,8 @@ int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_typ
 			return -1;
 		}
 		i++;
-		*err= BUFF_OK
-	};
+		*err= BUFF_OK;
+	}
 	return i;
 	
 }
