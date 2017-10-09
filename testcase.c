@@ -34,8 +34,8 @@ TEST(RingBuffer_empty_buffer, add_empty)
     EXPECT_EQ(b.head, buff + i * sizeof(unsigned char));
     EXPECT_EQ(b.tail, buff);
     EXPECT_EQ(b.buffer, buff);
+	EXPECT_EQ(i, len);
   }
-
   empty_buffer(&b);
 
   EXPECT_EQ(b.head, b.tail);
@@ -67,8 +67,6 @@ TEST(RingBuffer_empty_buffer, add_empty_2)
 {
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER];
-  int i;
-  error_type err;
 
   b.head = buff + 10 * sizeof(unsigned char);
   b.tail = buff + 1 * sizeof(unsigned char);
@@ -90,9 +88,10 @@ TEST(RingBuffer_getbuffer, init)
   int len;
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER];
-
+  error_type err;
+  
   init_buffer(&b, buff);
-  len = get_buffer_state(b);
+  len = get_buffer_state(b,&err);
 
   EXPECT_EQ(len, 0);
 

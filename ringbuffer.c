@@ -10,7 +10,7 @@ void init_buffer(struct buffer_type *b, unsigned char *buffer){
 void empty_buffer(struct buffer_type *b){
 	b->tail=b->head;	
 };
-signed int get_buffer_status(struct buffer_type b, enum error_type *err){
+signed int get_buffer_state(struct buffer_type b, enum error_type *err){
 	int amount = 0;
 	amount = b.head-b.tail;
 	if(amount<0){
@@ -39,7 +39,7 @@ int add_char_to_buffer(struct buffer_type *b, unsigned char c, enum error_type *
 		*err = BUFFER_FULL;
 		return -1;
 	}
-	return get_buffer_status(*b,err);
+	return get_buffer_state(*b,err);
 };
 signed char get_char_from_buffer(struct buffer_type *b, enum error_type *err){
 	signed char temp;
