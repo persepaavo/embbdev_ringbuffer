@@ -5,11 +5,11 @@ void init_buffer(struct buffer_type *b, unsigned char *buffer){
 	b->head=buffer;
 	b->tail=buffer;
 	b->buffer=buffer;
-};
+}
 
 void empty_buffer(struct buffer_type *b){
 	b->tail=b->head;	
-};
+}
 signed int get_buffer_state(struct buffer_type b, enum error_type *err){
 	int amount = 0;
 	amount = b.head-b.tail;
@@ -25,7 +25,7 @@ signed int get_buffer_state(struct buffer_type b, enum error_type *err){
 		return -1;
 	}
 	
-};
+}
 int add_char_to_buffer(struct buffer_type *b, unsigned char c, enum error_type *err){
 	if(b->head < (b->buffer+MAX_BUFFER-1)){
 		*(b->head) = c;
@@ -40,7 +40,7 @@ int add_char_to_buffer(struct buffer_type *b, unsigned char c, enum error_type *
 		return -1;
 	}
 	return get_buffer_state(*b,err);
-};
+}
 signed char get_char_from_buffer(struct buffer_type *b, enum error_type *err){
 	signed char temp;
 	if((b->tail < (b->buffer+MAX_BUFFER-1)) && (b->head !=b->tail)){
@@ -56,7 +56,7 @@ signed char get_char_from_buffer(struct buffer_type *b, enum error_type *err){
 		return -1;
 	}
 	return temp;
-};
+}
 int print_buffer(struct buffer_type b, enum error_type *err){
 	unsigned char *h = b.head;
 	unsigned char *t = b.tail;
@@ -82,7 +82,7 @@ int print_buffer(struct buffer_type b, enum error_type *err){
 	
 	return i;
 	
-};
+}
 int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_type *err){
 	int i = 0;
 	int l = 0;
@@ -112,7 +112,7 @@ int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_typ
 	};
 	return i;
 	
-};
+}
 int  get_string_from_buffer(struct buffer_type *b, unsigned char *dest, int len, enum error_type *err){
 	int i=0;
 	
@@ -121,4 +121,4 @@ int  get_string_from_buffer(struct buffer_type *b, unsigned char *dest, int len,
 	}
 	return i;
 	
-};
+}

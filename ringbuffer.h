@@ -2,13 +2,16 @@
 #include <string.h>
 #define MAX_BUFFER 10
 
+#define OK 1
+#define ERROR -1
+
 struct buffer_type{
   unsigned char *head;
   unsigned char *tail;
   unsigned char *buffer;
 };
 
-enum error_type{OK,BUFFER_OVER_FLOW,EMPTY_BUFFER,POINTER_ERROR,BUFFER_FULL};
+enum error_type{BUFF_OK,BUFFER_OVER_FLOW,EMPTY_BUFFER,POINTER_ERROR,BUFFER_FULL};
 
 void init_buffer(struct buffer_type *b, unsigned char *buffer);
 void empty_buffer(struct buffer_type *b);
