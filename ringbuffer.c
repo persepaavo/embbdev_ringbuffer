@@ -21,7 +21,7 @@ signed int get_buffer_state(struct buffer_type b, enum error_type *err){
 		return amount;
 	}
 	else{
-		*err = BUFFER_OVER_FLOW;
+		*err = BUFFER_OVERRUN;
 		return -1;
 	}
 	
@@ -52,7 +52,7 @@ signed char get_char_from_buffer(struct buffer_type *b, enum error_type *err){
 		b->tail = b->buffer;		
 	}
 	else{
-		*err = POINTER_ERROR;
+		*err = BUFFER_ERROR;
 		return -1;
 	}
 	return temp;
@@ -72,7 +72,7 @@ int print_buffer(struct buffer_type b, enum error_type *err){
 			t = b.buffer;		
 		}
 		else{
-			*err = POINTER_ERROR;
+			*err = BUFFER_ERROR;
 			return -1;
 		}
 		printf("%c",temp);

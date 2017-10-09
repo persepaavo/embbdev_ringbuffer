@@ -350,7 +350,7 @@ TEST(RingBuffer_add_char_to_buffer, big_test)
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER];
   error_type err;
-  int len;
+
 
   empty_buffer(&b);
   ASSERT_EQ(0, b.head - buff);
@@ -470,7 +470,7 @@ TEST(RingBuffer_get_char_from_buffer, big)
   EXPECT_EQ(buff, b.buffer);
   EXPECT_EQ(BUFFER_EMPTY, err);
 
-  print_buffer(b);
+  print_buffer(b,&err);
 
 }
 
@@ -528,7 +528,7 @@ TEST(RingBuffer, fill_get_test)
 {
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER], c;
-  int i, len;
+  int i;
 
   error_type err;
   {
@@ -590,7 +590,7 @@ TEST(RingBuffer_tests, empty_buffer_test)
   EXPECT_EQ(buff, b.buffer);
 }
 
-/**************************************************************/
+/*************************************************************
 
 TEST(RingBuffer, get_buffer_state)
 {
@@ -602,13 +602,13 @@ TEST(RingBuffer, get_buffer_state)
 
 
 }
-
+***************************************************************/
 
 TEST(RingBuffer_add_string_to_buffef, string)
 {
   struct buffer_type b;
   error_type err;
-  unsigned char buff[MAX_BUFFER];
+//  unsigned char buff[MAX_BUFFER];
   unsigned char str[] = "Test string";
 
   empty_buffer(&b);
@@ -624,7 +624,7 @@ TEST(RingBuffer_get_string_from_buffef, get_string)
 {
   struct buffer_type b;
   error_type err;
-  unsigned char buff[MAX_BUFFER];
+//  unsigned char buff[MAX_BUFFER];
   unsigned char src[20]="Hello";
   unsigned char dst[20];
 
