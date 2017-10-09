@@ -90,7 +90,7 @@ int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_typ
 	while(*(s+l) != '\0'){
 		l++;
 	}
-	k = get_buffer_status(*b,err);
+	k = get_buffer_state(*b,err);
 	
 	if(l > (MAX_BUFFER-k)){
 		return -1;
