@@ -17,7 +17,7 @@ signed int get_buffer_state(struct buffer_type b, enum error_type *err){
 		amount=amount+MAX_BUFFER;
 	}
 	if (amount >=0 && amount <= MAX_BUFFER){
-		*err = OK;
+		*err = BUFF_OK;
 		return amount;
 	}
 	else{
@@ -109,6 +109,7 @@ int add_string_to_buffer(struct buffer_type *b, unsigned char *s, enum error_typ
 			return -1;
 		}
 		i++;
+		*err= BUFF_OK
 	};
 	return i;
 	

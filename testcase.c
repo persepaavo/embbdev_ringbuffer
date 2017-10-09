@@ -480,7 +480,7 @@ TEST(RingBuffer, filltest)
 {
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER];
-  int i, len;
+  int i;
 
   error_type err;
 
@@ -505,7 +505,7 @@ TEST(RingBuffer, filltest)
 
   /* Fill still one */
 
-  len = add_char_to_buffer(&b, 'a', &err);
+//  len = add_char_to_buffer(&b, 'a', &err);
 //EXPECT_EQ(0,len);
   EXPECT_EQ(MAX_BUFFER - 1, b.head - buff);
   EXPECT_EQ(0, b.tail - buff);
@@ -574,7 +574,7 @@ TEST(RingBuffer, fill_get_test)
   EXPECT_EQ(buff, b.buffer);
   EXPECT_EQ(buff[100 - 2], 'a');
   EXPECT_EQ(BUFF_OK, err);
-
+  printf("%c\n",&c);
 }
 
 /**************************************************************/
