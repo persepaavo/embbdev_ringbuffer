@@ -347,7 +347,7 @@ TEST(RingBuffer_get_char_from_buffer, add_get)
 /*******************************************************************************/
 TEST(RingBuffer_add_char_to_buffer, big_test)
 {
-  int len;
+//  int len;
   struct buffer_type b;
   unsigned char buff[MAX_BUFFER];
   error_type err;
@@ -360,7 +360,7 @@ TEST(RingBuffer_add_char_to_buffer, big_test)
   /*-----------------------------*/
 
   SCOPED_TRACE("First");
-  len = add_char_to_buffer(&b, 'a', &err);
+//  len = add_char_to_buffer(&b, 'a', &err);
 //EXPECT_EQ(1,len);
   EXPECT_EQ(1, b.head - buff);
   EXPECT_EQ(0, b.tail - buff); // must not change
