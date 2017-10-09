@@ -11,7 +11,14 @@ struct buffer_type{
   unsigned char *buffer;
 };
 
-enum error_type{BUFF_OK,BUFFER_OVER_FLOW,EMPTY_BUFFER,POINTER_ERROR,BUFFER_FULL};
+enum error_type{
+  BUFF_OK,        /*! No error */
+  BUFFER_EMPTY,   /*! Buffer is empty */
+  BUFFER_FULL,    /*! Buffer is full */
+  BUFFER_OVERRUN, /*! Try to read over buffer end */
+  BUFFER_ERROR,
+  UNKNOWN_ERROR
+};
 
 void init_buffer(struct buffer_type *b, unsigned char *buffer);
 void empty_buffer(struct buffer_type *b);
