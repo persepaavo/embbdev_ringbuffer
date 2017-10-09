@@ -574,7 +574,7 @@ TEST(RingBuffer, fill_get_test)
   EXPECT_EQ(buff, b.buffer);
   EXPECT_EQ(buff[100 - 2], 'a');
   EXPECT_EQ(BUFF_OK, err);
-  printf("",&c);
+  printf("%d",&c);
 }
 
 /**************************************************************/
